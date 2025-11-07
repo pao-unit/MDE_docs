@@ -49,14 +49,14 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="intro/">MDE</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="ccm/">CCM</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="installation/">Installation</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Documentation</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="functions/">MDE Reference</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="ccm/">CCM</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="parameters/">Parameters</a>
                   </li>
@@ -92,9 +92,9 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h2 id="manifold-dimensional-expansion-mde">Manifold Dimensional Expansion (MDE)</h2>
-<p>Manifold dimensional expansion is a causal discovery and dimensionality reduction technique designed to identify low dimensional maximally predictive <em>observables</em> of a multivariate dynamical system. In contrast to many machine learning and statistical representations the discovered variables are <em>not</em> latent, abstract representations of complex system components, but <em>obervables</em>. </p>
+<p>Manifold dimensional expansion is a causal discovery and dimensionality reduction technique designed to identify low dimensional maximally predictive <em>observables</em> of a multivariate dynamical system. In contrast to many machine learning and statistical representations the discovered variables are <em>not</em> latent, abstract representations of complex system components, but <em>observables</em>. </p>
 <p>The algorithm is based on a greedy implementation of the generalized Takens embedding theorem. However, instead of using time delays for dimensionality expansion, <em>observables</em> that improve forecast skill of a target variable are added until no further improvement can be achieved. The default predictor is the  <a href="https://en.wikipedia.org/wiki/Empirical_dynamic_modeling">Empirical Dynamic Modeling (EDM)</a> <a href="https://www.nature.com/articles/344734a0">simplex</a> function providing a fully nonlinear predictor.</p>
-<p>Causal inference is performed with <a href="https://en.wikipedia.org/wiki/Convergent_cross_mapping">Convergent Cross Mapping</a> (<a href="https://science.sciencemag.org/content/338/6106/496">CCM</a>) ensuring the added observable is part of the same dynamical system as the target time series. The embedding dimension needed for CCM is automatically determined if parameter <code>E=0</code>, the default. Otherwise the specifed value of <code>E</code> is used. To account for unobserved variables time delay vectors of the top observables can be added.</p>
+<p>Causal inference is performed with <a href="https://en.wikipedia.org/wiki/Convergent_cross_mapping">Convergent Cross Mapping</a> (<a href="https://science.sciencemag.org/content/338/6106/496">CCM</a>) ensuring the added observable is part of the same dynamical system as the target time series. </p>
 <p>Output is a DataFrame of observation vectors defining a low-dimensional manifold with optimal predictability for the target variable. </p></div>
               
             </div>
@@ -143,5 +143,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-11-07 10:52:39.710915+00:00
+Build Date UTC : 2025-11-07 13:44:38.355251+00:00
 -->

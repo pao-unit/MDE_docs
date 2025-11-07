@@ -47,6 +47,8 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../intro/">MDE</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ccm/">CCM</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
                   </li>
               </ul>
@@ -59,8 +61,6 @@
     <li class="toctree-l2"><a class="reference internal" href="#mde-class-methods">MDE Class Methods</a>
     </li>
     </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../ccm/">CCM</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../parameters/">Parameters</a>
                   </li>
@@ -97,11 +97,11 @@
             <div class="section" itemprop="articleBody">
               
                 <div><h2 id="mde-class">MDE Class</h2>
-<p>MDE is an object-oriented class implementation. MDE class arguments can be specified through the MDE class constuctor. A command line interface (CLI) is also supported for the MDE and Evaluate classes. CLI parameters are configured through command line arguments.</p>
-<p>MDE can be imported as a module and executed with <code>dimx.Run()</code> or from the command line with the<code>ManifoldDimExpand.py</code> as shown in the examples. </p>
+<p>MDE is an object-oriented class implementation. MDE class arguments can be specified through the MDE class constructor. A command line interface (CLI) is also supported for the MDE and Evaluate classes with CLI parameters configured through command line arguments.</p>
+<p>The MDE class can be imported as a module and executed with <code>dimx.Run()</code> or from the command line with the<code>ManifoldDimExpand.py</code> wrapper as shown in the examples. </p>
 <p>Class and application parameters are detailed in the <a href="../parameters/">parameters</a> table.</p>
 <h3 id="mde-class-constructor">MDE Class Constructor</h3>
-<p>MDE class constuctor </p>
+<p>MDE class constructor </p>
 <pre><code class="language-python">MDE( dataFrame=None, dataFile=None, dataName=None, removeTime=False,
      noTime=False, columnNames=[], initDataColumns=[], removeColumns=[],
      D=3, target=None, lib=[], pred=[], Tp=1, tau=-1, exclusionRadius=0,
@@ -114,10 +114,19 @@
 <p><strong>Required Arguments</strong></p>
 <p><code>target</code> : target variable</p>
 <p><code>dataFrame</code> or <code>dataFile</code> : Multivariate observations</p>
+<p><strong>Notes</strong></p>
+<p>MDE includes all columns in the <code>dataFrame</code> when scanning observables. To avoid including the <code>target</code> or other columns list them in <code>removeColumns</code>, for example: <code>removeColumns=[index, FWD, Left_Right]</code>. To explicitly list columns to scan <code>columnNames</code> can be used.</p>
+<p>If the EDM/CCM library (<code>lib</code>) and prediction (<code>pred</code>) row indices are not specified they default to all observation rows in the dataFrame.</p>
+<p><code>ccmSlope</code> determines the criteria for CCM convergence. It is the slope of a linear regression of CCM predictive correlation onto [0,1] normalized CCM library sizes specified as percentiles in <code>pLibSizes</code>.</p>
+<p><code>crossMapRhoMin</code> and <code>embedDimRhoMin</code> are minimum thresholds of predictive correlation to accept a candidate observation vector as valid (<code>crossMapRhoMin</code>) and qualify the embedding dimension for CCM (<code>embedDimRhoMin</code>). Higher values make MDE more selective. Default values of 0.5 may be too high for specific data/systems.</p>
+<p>The embedding dimension needed for CCM is automatically determined if parameter <code>E=0</code>, the default. Otherwise the specified value of <code>E</code> is used. </p>
+<p>To account for unobserved variables N = <code>timeDelay</code> vectors of the top observables can be added to the manifold. </p>
+<hr>
 <h3 id="mde-class-methods">MDE Class Methods</h3>
 <pre><code class="language-python">Run()
 </code></pre>
 <p>Run a configured MDE class instance.</p>
+<hr>
 <h2 id="mde-applications">MDE Applications</h2>
 <h3 id="evaluate">Evaluate</h3>
 <p>Evaluate MDE discovered observables predicting the target. Compare to PCA and 
@@ -142,7 +151,7 @@ runs an <code>MDE</code> class instance. Parameters are detailed in the <a href=
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../ccm/" class="btn btn-neutral float-right" title="CCM">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../parameters/" class="btn btn-neutral float-right" title="Parameters">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -168,7 +177,7 @@ runs an <code>MDE</code> class instance. Parameters are detailed in the <a href=
       <span><a href="../installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../ccm/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../parameters/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

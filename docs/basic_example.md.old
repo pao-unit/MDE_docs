@@ -1,0 +1,28 @@
+## Basic Example
+
+```python
+from dimx import MDE
+from pandas import read_csv
+
+df = read_csv( './data/Fly80XY_norm_1061.csv' )
+
+mde = MDE( df, target = 'FWD', 
+           removeColumns = ['index','FWD','Left_Right'], 
+           D = 10, lib = [1,300], pred = [301,600], ccmSeed = 12345,
+           cores = 10, plot = True, title = "MDE FWD" )
+
+mde.Run()
+
+mde.MDEOut
+  variables       rho
+0      TS33  0.652844
+1       TS4  0.792290
+2      TS17  0.823024
+3      TS71  0.840094
+4      TS44  0.840958
+5      TS37  0.845765
+6       TS9  0.846601
+7      TS30  0.859614
+8      TS47  0.860541
+9      TS67  0.860230
+```

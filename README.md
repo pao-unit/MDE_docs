@@ -1,2 +1,2 @@
-# MDE_docs
-MDE Documentation
+## MDE_docs
+Manifold Dimensional Expansion (MDE) Documentation for (MDE source)[https://github.com/pao-unit/MDE]

@@ -1,0 +1,32 @@
+site_name: Manifold Dimensional Expansion
+theme:
+    name: readthedocs
+extra_css: [extra.css]
+
+plugins:
+  - mknotebooks
+  - mkdocs-video:
+      is_video: True
+      video_muted: False
+      video_controls: True
+      css_style:
+        width: "75%"
+
+markdown_extensions:
+- attr_list
+
+nav:
+- Home : index.md
+- Getting Started :
+    - MDE                : intro.md
+    - Installation       : installation.md
+- Documentation :
+    - MDE Reference      : functions.md
+    - CCM                : ccm.md
+    - Parameters         : parameters.md
+- Examples :
+    - Basic Example      : basic_example.ipynb
+    - Real World Example : real_example.ipynb
+### - Basic              : basic_example.md
+### - Real World         : real_example.md
+

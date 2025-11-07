@@ -1,12 +1,12 @@
 ## MDE Class
-MDE is an object-oriented class implementation. MDE class arguments can be specified through the MDE class constuctor. A command line interface (CLI) is also supported for the MDE and Evaluate classes. CLI parameters are configured through command line arguments.
+MDE is an object-oriented class implementation. MDE class arguments can be specified through the MDE class constructor. A command line interface (CLI) is also supported for the MDE and Evaluate classes with CLI parameters configured through command line arguments.
 
-MDE can be imported as a module and executed with `dimx.Run()` or from the command line with the`ManifoldDimExpand.py` as shown in the examples. 
+The MDE class can be imported as a module and executed with `dimx.Run()` or from the command line with the`ManifoldDimExpand.py` wrapper as shown in the examples. 
 
 Class and application parameters are detailed in the [parameters](parameters.md) table.
 
 ### MDE Class Constructor
-MDE class constuctor 
+MDE class constructor 
 ```python
 MDE( dataFrame=None, dataFile=None, dataName=None, removeTime=False,
      noTime=False, columnNames=[], initDataColumns=[], removeColumns=[],
@@ -24,6 +24,21 @@ MDE( dataFrame=None, dataFile=None, dataName=None, removeTime=False,
 
 ```dataFrame``` or ```dataFile``` : Multivariate observations
 
+**Notes**
+
+MDE includes all columns in the `dataFrame` when scanning observables. To avoid including the `target` or other columns list them in `removeColumns`, for example: `removeColumns=[index, FWD, Left_Right]`. To explicitly list columns to scan `columnNames` can be used.
+
+If the EDM/CCM library (`lib`) and prediction (`pred`) row indices are not specified they default to all observation rows in the dataFrame.
+
+`ccmSlope` determines the criteria for CCM convergence. It is the slope of a linear regression of CCM predictive correlation onto [0,1] normalized CCM library sizes specified as percentiles in `pLibSizes`.
+
+`crossMapRhoMin` and `embedDimRhoMin` are minimum thresholds of predictive correlation to accept a candidate observation vector as valid (`crossMapRhoMin`) and qualify the embedding dimension for CCM (`embedDimRhoMin`). Higher values make MDE more selective. Default values of 0.5 may be too high for specific data/systems.
+
+The embedding dimension needed for CCM is automatically determined if parameter `E=0`, the default. Otherwise the specified value of `E` is used. 
+
+To account for unobserved variables N = `timeDelay` vectors of the top observables can be added to the manifold. 
+
+---
 
 ### MDE Class Methods
 
@@ -31,6 +46,8 @@ MDE( dataFrame=None, dataFile=None, dataName=None, removeTime=False,
 Run()
 ```
 Run a configured MDE class instance.
+
+---
 
 ## MDE Applications
 

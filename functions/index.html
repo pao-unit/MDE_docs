@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>MDE Reference - Manifold Dimensional Expansion</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+        <link href="../css/ansi-colours.css" rel="stylesheet" />
+        <link href="../css/jupyter-cells.css" rel="stylesheet" />
+        <link href="../css/pandas-dataframe.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "MDE Reference";
+        var mkdocs_page_input_path = "functions.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Manifold Dimensional Expansion
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../intro/">MDE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">MDE Reference</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#mde-class-constructor">MDE Class Constructor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mde-class-methods">MDE Class Methods</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ccm/">CCM</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../parameters/">Parameters</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic_example/">Basic Example</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../real_example/">Real World Example</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Manifold Dimensional Expansion</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Documentation</li>
+      <li class="breadcrumb-item active">MDE Reference</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h2 id="mde-class">MDE Class</h2>
+<p>MDE is an object-oriented class implementation. MDE class arguments can be specified through the MDE class constuctor. A command line interface (CLI) is also supported for the MDE and Evaluate classes. CLI parameters are configured through command line arguments.</p>
+<p>MDE can be imported as a module and executed with <code>dimx.Run()</code> or from the command line with the<code>ManifoldDimExpand.py</code> as shown in the examples. </p>
+<p>Class and application parameters are detailed in the <a href="../parameters/">parameters</a> table.</p>
+<h3 id="mde-class-constructor">MDE Class Constructor</h3>
+<p>MDE class constuctor </p>
+<pre><code class="language-python">MDE( dataFrame=None, dataFile=None, dataName=None, removeTime=False,
+     noTime=False, columnNames=[], initDataColumns=[], removeColumns=[],
+     D=3, target=None, lib=[], pred=[], Tp=1, tau=-1, exclusionRadius=0,
+     sample=20, pLibSizes=[10, 15, 85, 90], noCCM=False, ccmSlope=0.01,
+     ccmSeed=None, E=0, crossMapRhoMin=0.5, embedDimRhoMin=0.5, maxE=15,
+     firstEMax=False, timeDelay=0, cores=5, mpMethod=None, chunksize=1,
+     outDir='./', outFile=None, outCSV=None, logFile=None, consoleOut=True,
+     verbose=False, debug=False, plot=False, title=None, args=None )
+</code></pre>
+<p><strong>Required Arguments</strong></p>
+<p><code>target</code> : target variable</p>
+<p><code>dataFrame</code> or <code>dataFile</code> : Multivariate observations</p>
+<h3 id="mde-class-methods">MDE Class Methods</h3>
+<pre><code class="language-python">Run()
+</code></pre>
+<p>Run a configured MDE class instance.</p>
+<h2 id="mde-applications">MDE Applications</h2>
+<h3 id="evaluate">Evaluate</h3>
+<p>Evaluate MDE discovered observables predicting the target. Compare to PCA and 
+diffusion map decompositions. </p>
+<pre><code class="language-python">Evaluate( dataFrame=None, dataFile=None, outFile=None, mde_columns=[], 
+          columns_range=[], i_columns=[], columnMatch=[], removeColumns=[],
+          removeTime=False, initDataColumns=[], predictVar=None, library=[],
+          prediction=[], E=0, tau=-1, Tp=0, components=3, dmap_k=5,
+          dmap_epsilon='bgh', dmap_alpha=0.5, plot=False, plotRho=False,
+          minMax=False, maxN=7, figsize=(8, 8), xlim=None, verbose=False,
+          args=None )
+</code></pre>
+<h3 id="mde-cli-manifolddimexpandpy">MDE CLI ManifoldDimExpand.py:</h3>
+<p><code>ManifoldDimExpand.py</code> is an executable program that instantiates and 
+runs an <code>MDE</code> class instance. Parameters are detailed in the <a href="../parameters/">parameters</a> table and can be listed with the <code>-h</code> command line option.</p>
+<pre><code>./ManifoldDimExpand.py -d ../data/Fly80XY_norm_1061.csv 
+-rc index FWD Left_Right -D 10 -t FWD -l 1 300 -p 301 600
+-C 10 -ccs 0.01 -emin 0.5 -P -title "MDE FWD" -v
+</code></pre></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ccm/" class="btn btn-neutral float-right" title="CCM">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ccm/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

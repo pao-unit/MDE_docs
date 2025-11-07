@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>MDE - Manifold Dimensional Expansion</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+        <link href="../css/ansi-colours.css" rel="stylesheet" />
+        <link href="../css/jupyter-cells.css" rel="stylesheet" />
+        <link href="../css/pandas-dataframe.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "MDE";
+        var mkdocs_page_input_path = "intro.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Manifold Dimensional Expansion
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">MDE</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#time-series-as-observations-of-a-dynamic-system">Time Series as Observations of a Dynamic System</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#takens-theorem">Takens Theorem</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mde-generalized-embedding">MDE Generalized Embedding</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../functions/">MDE Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ccm/">CCM</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../parameters/">Parameters</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic_example/">Basic Example</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../real_example/">Real World Example</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Manifold Dimensional Expansion</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Getting Started</li>
+      <li class="breadcrumb-item active">MDE</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h2 id="foundations-of-mde">Foundations of MDE</h2>
+<p>MDE leverages the <a href="https://doi.org/10.1371%2Fjournal.pone.0018295">Generalized Embedding Theorem</a> employing <a href="https://en.wikipedia.org/wiki/Empirical_dynamic_modeling">Empirical Dynamic Modeling</a> to evaluate dynamical manifolds. The generalized embedding theorem is a generalization of Taken's theorem from time-delays to multivariate observations. </p>
+<h3 id="time-series-as-observations-of-a-dynamic-system">Time Series as Observations of a Dynamic System</h3>
+<p>Dynamic systems are both state and time dependent. Here one can see the direct connection between state and time dependence. </p>
+<iframe width="100%" height="335" src="https://www.youtube.com/embed/fevurdpiRYg" frameborder="0" allow="autoplay; gyroscope; 
+picture-in-picture" allowfullscreen></iframe>
+
+<h3 id="takens-theorem">Takens Theorem</h3>
+<p><a href="https://en.wikipedia.org/wiki/Takens%27s_theorem">Takens theorem</a> 
+is a remarkable mathematical result that allows one to reconstruct a
+representation of the system dynamics (state-space manifold) from a
+single (univariate, 1-D) timeseries observed from the system.  The embedding
+results in generation of a higher-dimensional representation of the system.</p>
+<iframe width="100%" height="335" src="https://www.youtube.com/embed/QQwtrWBwxQg" frameborder="0" allow="autoplay; gyroscope; 
+picture-in-picture" allowfullscreen></iframe>
+
+<hr>
+<h3 id="mde-generalized-embedding">MDE Generalized Embedding</h3>
+<p>MDE leverages the generalized embedding theorem to discover optimally informative multidimensional manifolds for a target observable of a multivariate complex saystem. Specifically, given a target observable, scan all other observables to find the best 1-D predictor of the target, ensuring the predictor has causal inference with the target. With this 1-D vector scan all remaining observables to find the 2-D embedding with best predictability and causal inference. This greedy algorithm is iterated up to the point that no further prediction skill improvement can be produced. </p></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../installation/" class="btn btn-neutral float-right" title="Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

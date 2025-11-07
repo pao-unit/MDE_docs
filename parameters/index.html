@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Parameters - Manifold Dimensional Expansion</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+        <link href="../css/ansi-colours.css" rel="stylesheet" />
+        <link href="../css/jupyter-cells.css" rel="stylesheet" />
+        <link href="../css/pandas-dataframe.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Parameters";
+        var mkdocs_page_input_path = "parameters.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Manifold Dimensional Expansion
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../intro/">MDE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../functions/">MDE Reference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ccm/">CCM</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Parameters</a>
+    <ul class="current">
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic_example/">Basic Example</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../real_example/">Real World Example</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Manifold Dimensional Expansion</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Documentation</li>
+      <li class="breadcrumb-item active">Parameters</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h2 id="parameters">Parameters</h2>
+<p>MDE parameters are defined in the MDE constructor. </p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dataFrame</td>
+<td>None</td>
+<td>Pandas DataFrame : column observation vectors, row observations</td>
+</tr>
+<tr>
+<td>dataFile</td>
+<td>None</td>
+<td>Data file name to load</td>
+</tr>
+<tr>
+<td>dataName</td>
+<td>None</td>
+<td>Data name in .npz archive</td>
+</tr>
+<tr>
+<td>removeTime</td>
+<td>False</td>
+<td>Remove first column from dataFrame</td>
+</tr>
+<tr>
+<td>noTime</td>
+<td>False</td>
+<td>First column of dataFrame is not time vector</td>
+</tr>
+<tr>
+<td>columnNames</td>
+<td>[]</td>
+<td>dataFrame columns to process</td>
+</tr>
+<tr>
+<td>initDataColumns</td>
+<td>[]</td>
+<td>If reading .npz omit these leading columns</td>
+</tr>
+<tr>
+<td>removeColumns</td>
+<td>[]</td>
+<td>Columns to ignore</td>
+</tr>
+<tr>
+<td>D</td>
+<td>3</td>
+<td>Maximum number of MDE dimensions</td>
+</tr>
+<tr>
+<td>target</td>
+<td>None</td>
+<td>Target variable</td>
+</tr>
+<tr>
+<td>lib</td>
+<td>[]</td>
+<td>EDM library indices. Default to all rows</td>
+</tr>
+<tr>
+<td>pred</td>
+<td>[]</td>
+<td>EDM prediction indices. Default to all rows</td>
+</tr>
+<tr>
+<td>Tp</td>
+<td>1</td>
+<td>Prediction time interval</td>
+</tr>
+<tr>
+<td>tau</td>
+<td>-1</td>
+<td>CCM embedding time delay</td>
+</tr>
+<tr>
+<td>exclusionRadius</td>
+<td>0</td>
+<td>CCM library temporal exlcusion radius</td>
+</tr>
+<tr>
+<td>sample</td>
+<td>20</td>
+<td>CCM random library samples to average</td>
+</tr>
+<tr>
+<td>pLibSizes</td>
+<td>[10, 15, 85, 90]</td>
+<td>Percentiles of CCM library sizes</td>
+</tr>
+<tr>
+<td>noCCM</td>
+<td>False</td>
+<td>Disable CCM</td>
+</tr>
+<tr>
+<td>ccmSlope</td>
+<td>0.01</td>
+<td>Slope of CCM(LibSizes) convergence</td>
+</tr>
+<tr>
+<td>ccmSeed</td>
+<td>None</td>
+<td>CCM random seed</td>
+</tr>
+<tr>
+<td>E</td>
+<td>0</td>
+<td>CCM embedding dimension. If 0 compute automatically</td>
+</tr>
+<tr>
+<td>crossMapRhoMin</td>
+<td>0.5</td>
+<td>Minimum rho for cross map acceptance</td>
+</tr>
+<tr>
+<td>embedDimRhoMin</td>
+<td>0.5</td>
+<td>Minimum rho for CCM embedding dimension</td>
+</tr>
+<tr>
+<td>maxE</td>
+<td>15</td>
+<td>Maximum embedding dimension for CCM</td>
+</tr>
+<tr>
+<td>firstEMax</td>
+<td>False</td>
+<td>CCM embedding dimension is first local peak in rho(E)</td>
+</tr>
+<tr>
+<td>timeDelay</td>
+<td>0</td>
+<td>Add N=timeDelay time delays</td>
+</tr>
+<tr>
+<td>cores</td>
+<td>5</td>
+<td>number of multiprocessing CPU in CrossMapColumns()</td>
+</tr>
+<tr>
+<td>mpMethod</td>
+<td>None</td>
+<td>multiprocessing context method in CrossMapColumns()</td>
+</tr>
+<tr>
+<td>chunksize</td>
+<td>1</td>
+<td>multiprocessing chunksize in CrossMapColumns()</td>
+</tr>
+<tr>
+<td>outDir</td>
+<td>None</td>
+<td>Output file directory</td>
+</tr>
+<tr>
+<td>outFile</td>
+<td>None</td>
+<td>MDE object pickle file</td>
+</tr>
+<tr>
+<td>outCSV</td>
+<td>None</td>
+<td>CSV of MDE output</td>
+</tr>
+<tr>
+<td>logFile</td>
+<td>None</td>
+<td>Log file</td>
+</tr>
+<tr>
+<td>consoleOut</td>
+<td>True</td>
+<td>Echo output to console</td>
+</tr>
+<tr>
+<td>verbose</td>
+<td>False</td>
+<td>Verbose mode</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>False</td>
+<td>Debug mode</td>
+</tr>
+<tr>
+<td>plot</td>
+<td>False</td>
+<td>Plot MDE result</td>
+</tr>
+<tr>
+<td>title</td>
+<td>None</td>
+<td>Plot title</td>
+</tr>
+<tr>
+<td>args</td>
+<td>None</td>
+<td>ArgumentParser object from CLI_Parser</td>
+</tr>
+</tbody>
+</table></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ccm/" class="btn btn-neutral float-left" title="CCM"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../basic_example/" class="btn btn-neutral float-right" title="Basic Example">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ccm/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../basic_example/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

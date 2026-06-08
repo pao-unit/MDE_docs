@@ -29,9 +29,12 @@ MDE parameters are defined in the MDE constructor.
 | maxE | 15 | Maximum embedding dimension for CCM |
 | firstEMax | False | CCM embedding dimension is first local peak in rho(E) |
 | timeDelay | 0 | Add N=timeDelay time delays |
-| cores | 5 | number of multiprocessing CPU in CrossMapColumns() |
+| crossMapCores | None | number of multiprocessing CPU in CrossMapColumns() |
 | mpMethod | None | multiprocessing context method in CrossMapColumns() |
 | chunksize | 1 | multiprocessing chunksize in CrossMapColumns() |
+| sharedMem | 0.1  | Data size in MB to enable shared memory  |
+| logPct  | 0 | Percent progress to log (each dimension) |
+| kdWorkers | 1 | KDTree.query workers in Simplex |
 | outDir | None | Output file directory |
 | outFile | None | MDE object pickle file |
 | outCSV | None | CSV of MDE output |

@@ -8,14 +8,48 @@ Class and application parameters are detailed in the [parameters](parameters.md)
 ### MDE Class Constructor
 MDE class constructor 
 ```python
-MDE( dataFrame=None, dataFile=None, dataName=None, removeTime=False,
-     noTime=False, columnNames=[], initDataColumns=[], removeColumns=[],
-     D=3, target=None, lib=[], pred=[], Tp=1, tau=-1, exclusionRadius=0,
-     sample=20, pLibSizes=[10, 15, 85, 90], noCCM=False, ccmSlope=0.01,
-     ccmSeed=None, E=0, crossMapRhoMin=0.5, embedDimRhoMin=0.5, maxE=15,
-     firstEMax=False, timeDelay=0, cores=5, mpMethod=None, chunksize=1,
-     outDir='./', outFile=None, outCSV=None, logFile=None, consoleOut=True,
-     verbose=False, debug=False, plot=False, title=None, args=None )
+MDE( dataFrame       = None,  # pandas DataFrame
+     dataFile        = None,  # file name for DataFrame
+     dataName        = None,  # dataName in npz archive
+     removeTime      = False, # remove dataFrame first column
+     noTime          = False, # first dataFrame column is data
+     columnNames     = [],    # partial match columnNames
+     initDataColumns = [],    # .npy .npz : see ReadData()
+     removeColumns   = [],    # columns to remove from dataFrame
+     D               = 3,     # MDE max dimension
+     target          = None,  # target variable to predict
+     lib             = [],    # EDM library start,stop 1-offset
+     pred            = [],    # EDM prediction start,stop 1-offset
+     Tp              = 1,     # prediction interval
+     tau             = -1,    # CCM embedding delay
+     exclusionRadius = 0,     # exclusion radius: CCM, CrossMap
+     sample          = 20,    # CCM random sample
+     pLibSizes       = [10, 15, 85, 90], # CCM libSizes percentiles
+     noCCM           = False, # Do not validate with CCM
+     ccmSlope        = 0.01,  # CCM convergence criteria
+     ccmSeed         = None,  # CCM random seed
+     E               = 0,     # Static E for all CCM
+     crossMapRhoMin  = 0.5,   # threshold for L_rhoD in Run()
+     embedDimRhoMin  = 0.5,   # maxRhoEDim threshold in Run()
+     maxE            = 15,    # maximum embedding dim for CCM
+     firstEMax       = False, # use first local peak for E-dim
+     timeDelay       = 0,     # Number of time delays to add
+     crossMapCores   = None,  # cross-map core cap; None=all cores
+     mpMethod        = None,  # multiprocessing start context
+     chunksize       = 1,     # multiprocessing chunksize
+     sharedMem       = 0.1,   # shared-mem threshold (decimal MB)
+     logPct          = 0,     # cross-map progress band
+     kdWorkers       = 1,     # KDTree.query workers in Simplex
+     outDir          = './',  # use pathlib for windog
+     outFile         = None,
+     outCSV          = None,
+     logFile         = None,
+     consoleOut      = True,  # LogMsg() print() to console
+     verbose         = False,
+     debug           = False,
+     plot            = False,
+     title           = None,
+     args            = None )
 ```
 
 **Required Arguments**
@@ -28,7 +62,7 @@ MDE( dataFrame=None, dataFile=None, dataName=None, removeTime=False,
 
 MDE includes all columns in the `dataFrame` when scanning observables. To avoid including the `target` or other columns list them in `removeColumns`, for example: `removeColumns=[index, FWD, Left_Right]`. To explicitly list columns to scan `columnNames` can be used.
 
-If the EDM/CCM library (`lib`) and prediction (`pred`) row indices are not specified they default to all observation rows in the dataFrame.
+If the EDM/CCM library (`lib`) and prediction (`pred`) row indices are not specified they default to all observation rows in the dataFrame. This is not suitable for MDE which should use out-of-sample prediction: `pred`∉`lib`.
 
 `ccmSlope` determines the criteria for CCM convergence. It is the slope of a linear regression of CCM predictive correlation onto [0,1] normalized CCM library sizes specified as percentiles in `pLibSizes`.
 
@@ -55,13 +89,34 @@ Run a configured MDE class instance.
 Evaluate MDE discovered observables predicting the target. Compare to PCA and 
 diffusion map decompositions. 
 ```python
-Evaluate( dataFrame=None, dataFile=None, outFile=None, mde_columns=[], 
-          columns_range=[], i_columns=[], columnMatch=[], removeColumns=[],
-          removeTime=False, initDataColumns=[], predictVar=None, library=[],
-          prediction=[], E=0, tau=-1, Tp=0, components=3, dmap_k=5,
-          dmap_epsilon='bgh', dmap_alpha=0.5, plot=False, plotRho=False,
-          minMax=False, maxN=7, figsize=(8, 8), xlim=None, verbose=False,
-          args=None )
+Evaluate( dataFrame       = None,
+          dataFile        = None,
+          outFile         = None,
+          mde_columns     = [],    # MDE columns
+          columns_range   = [],    # (start,stop) indices for data columns
+          i_columns       = [],    # list of dataFile column indices for data
+          columnMatch     = [],    # list of columns (partial matching) for data
+          removeColumns   = [],    # list of columns to ignore in MDE
+          removeTime      = False,
+          initDataColumns = [],    # insert initial column names
+          predictVar      = None,  # target variable
+          library         = [],    # EDM lib
+          prediction      = [],    # EDM pred
+          E               = 0,     # MDE E if adding time delays
+          tau             = -1,    # MDE tau if adding time delays
+          Tp              = 0,     # EDM prediction horizon
+          components      = 3,     # number of PCA, Diffusion Map components
+          dmap_k          = 5,     # diffusion map 
+          dmap_epsilon    = 'bgh', # diffusion map 
+          dmap_alpha      = 0.5,   # diffusion map 
+          plot            = False,
+          plotRho         = False,
+          minMax          = False, # apply min/max scaler to data and pred plot
+          maxN            = 7,
+          figsize         = (8, 8),
+          xlim            = None,
+          verbose         = False,
+          args            = None )
 ```
 
 ### MDE CLI ManifoldDimExpand.py:

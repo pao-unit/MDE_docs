@@ -234,8 +234,8 @@
 <td>Add N=timeDelay time delays</td>
 </tr>
 <tr>
-<td>cores</td>
-<td>5</td>
+<td>crossMapCores</td>
+<td>None</td>
 <td>number of multiprocessing CPU in CrossMapColumns()</td>
 </tr>
 <tr>
@@ -247,6 +247,21 @@
 <td>chunksize</td>
 <td>1</td>
 <td>multiprocessing chunksize in CrossMapColumns()</td>
+</tr>
+<tr>
+<td>sharedMem</td>
+<td>0.1</td>
+<td>Data size in MB to enable shared memory</td>
+</tr>
+<tr>
+<td>logPct</td>
+<td>0</td>
+<td>Percent progress to log (each dimension)</td>
+</tr>
+<tr>
+<td>kdWorkers</td>
+<td>1</td>
+<td>KDTree.query workers in Simplex</td>
 </tr>
 <tr>
 <td>outDir</td>
